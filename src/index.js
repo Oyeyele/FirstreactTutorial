@@ -190,6 +190,54 @@ import './index.css'
 
 // ReactDom.render(<Booklist />, document.getElementById('root'));
 
+// const books = [
+//   {
+//     id: 1,
+//     img:"https://images-na.ssl-images-amazon.com/images/I/91DEviT3oUL._AC_UL200_SR200,200_.jpg",
+//     title:"How to catch a Turkey",
+//     author:"Adam Wallace" 
+//   },
+//   {
+//     id:2,
+//     img:"https://images-na.ssl-images-amazon.com/images/I/91JLTg-0IdL._AC_UL200_SR200,200_.jpg",
+//     title:"The Cheese Board Deck: 50 Cards for Styling",
+//     author:"Meg Quinn" 
+//   },
+//   {
+//     id:3,
+//     img:"https://images-na.ssl-images-amazon.com/images/I/51ABc0hukNL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+//     title:"My First Learn to Write Workbook: Practice for Kids with Pen Control, Line Tracing, Letters, and More!",
+//     author:"Crystal Radke" 
+//   }
+// ]
+
+// function Booklist() {
+//   return <section className="bookList">
+//     {books.map((book,index) => {
+//       const {img, title, author} = book; // this line is not needed 
+//       return (
+//       <Book key={book.id} book={book}></Book>
+//       )
+//     })}
+//   </section>
+//   //this children in line 169 will only apply to the 1st book
+// }
+
+// const Book = (props) => {  // another way of destructuring const Book = ({img, title,author}) => {
+//   const {img, title, author} = props.book; // we are not destructuring the props, we are destructuring the book properties(check 2:52:35))//props.book(check 2:50:55)
+//   console.log(props); // just used this to check what is in props 
+//   return (
+//   <article className="book"> 
+//     <img src={img} alt="" />
+//     <h1>{title}</h1>
+//     <h4>{author}</h4>
+//     </article>
+//     )
+// }
+
+// ReactDom.render(<Booklist />, document.getElementById('root'));
+
+// Spread Operator usage 
 const books = [
   {
     id: 1,
@@ -214,18 +262,18 @@ const books = [
 function Booklist() {
   return <section className="bookList">
     {books.map((book) => {
-      const {img, title, author} = book; // this line is not needed
+      const {img, title, author} = book; // not needed
       return (
-      <Book key={book.id} book={book}></Book>
+      <Book key={book.id} {...book}></Book>
       )
     })}
   </section>
-  //this children in line 169 will only apply to the 1st book
+  
 }
 
-const Book = (props) => {  // another way of destructuring const Book = ({img, title,author}) => {
-  const {img, title, author} = props.book; // we are not destructuring the props, we are destructuring the book properties(check 2:52:35))//props.book(check 2:50:55)
-  console.log(props); // just used this to check what is in props 
+const Book = ({img, title, author}) => {  
+
+  console.log(props);  
   return (
   <article className="book"> 
     <img src={img} alt="" />
