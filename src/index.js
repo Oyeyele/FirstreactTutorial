@@ -237,50 +237,77 @@ import './index.css'
 
 // ReactDom.render(<Booklist />, document.getElementById('root'));
 
-// Spread Operator usage 
-const books = [
-  {
-    id: 1,
-    img:"https://images-na.ssl-images-amazon.com/images/I/91DEviT3oUL._AC_UL200_SR200,200_.jpg",
-    title:"How to catch a Turkey",
-    author:"Adam Wallace" 
-  },
-  {
-    id:2,
-    img:"https://images-na.ssl-images-amazon.com/images/I/91JLTg-0IdL._AC_UL200_SR200,200_.jpg",
-    title:"The Cheese Board Deck: 50 Cards for Styling",
-    author:"Meg Quinn" 
-  },
-  {
-    id:3,
-    img:"https://images-na.ssl-images-amazon.com/images/I/51ABc0hukNL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-    title:"My First Learn to Write Workbook: Practice for Kids with Pen Control, Line Tracing, Letters, and More!",
-    author:"Crystal Radke" 
-  }
-]
+// // Spread Operator usage and events(button)
+// const books = [
+//   {
+//     id: 1,
+//     img:"https://images-na.ssl-images-amazon.com/images/I/91DEviT3oUL._AC_UL200_SR200,200_.jpg",
+//     title:"How to catch a Turkey",
+//     author:"Adam Wallace" 
+//   },
+//   {
+//     id:2,
+//     img:"https://images-na.ssl-images-amazon.com/images/I/91JLTg-0IdL._AC_UL200_SR200,200_.jpg",
+//     title:"The Cheese Board Deck: 50 Cards for Styling",
+//     author:"Meg Quinn" 
+//   },
+//   {
+//     id:3,
+//     img:"https://images-na.ssl-images-amazon.com/images/I/51ABc0hukNL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
+//     title:"My First Learn to Write Workbook: Practice for Kids with Pen Control, Line Tracing, Letters, and More!",
+//     author:"Crystal Radke" 
+//   }
+// ]
 
+// function Booklist() {
+//   return <section className="bookList">
+//     {books.map((book) => {
+//       return (
+//       <Book key={book.id} {...book}></Book>
+//       )
+//     })}
+//   </section>
+// }
+
+// const Book = ({img, title, author}) => {  
+//   // attribute, eventHandler
+//   // onClick, onMouseOver
+// const clickHandler = (e) => {
+//   console.log(e)
+//   console.log(e.target)
+//   alert('Hello World')
+// };
+// const complexExample = (author) => {  // when we need to pass as argument in
+//   console.log(author)
+// }
+//   return (
+//   <article className="book" onMouseOver={() => console.log(title)}>
+//     <img src={img} alt="" />
+//     <h1 onClick={() => console.log(title)}>{title}</h1> 
+//     <h4>{author}</h4>
+//     <button type='button' onClick={clickHandler}>Reference Example</button>
+//     <button type="button" onClick={() => complexExample(author)}>More Complex Example</button>
+//     </article>
+//     ) // in line 285 if we enterd complexExample as a function because if we entered as (complexExample(author)) it will execute immediately the code is ran, but we want it to execute on clicking
+// }
+// // line 279 states that once you click on the title of the book, the title is printed in the console
+// ReactDom.render(<Booklist />, document.getElementById('root'));
+
+// Import and Export Statements
+import {books} from './books' //**** */
+
+import {greeting} from './Testing/testing'
+import Book from './Book'
 function Booklist() {
+  console.log(greeting)
   return <section className="bookList">
     {books.map((book) => {
-      const {img, title, author} = book; // not needed
       return (
       <Book key={book.id} {...book}></Book>
       )
     })}
   </section>
-  
 }
 
-const Book = ({img, title, author}) => {  
-
-  console.log(props);  
-  return (
-  <article className="book"> 
-    <img src={img} alt="" />
-    <h1>{title}</h1>
-    <h4>{author}</h4>
-    </article>
-    )
-}
-
+// line 279 states that once you click on the title of the book, the title is printed in the console
 ReactDom.render(<Booklist />, document.getElementById('root'));
